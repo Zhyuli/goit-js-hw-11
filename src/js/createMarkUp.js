@@ -1,9 +1,6 @@
-import { refs } from "../index";
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import SimpleLightbox from 'simplelightbox';
 
 export function createMarckUp(params) {
-    const imgArr = params.map(
+    return params.map(
         ({
             webformatURL,
             largeImageURL,
@@ -12,10 +9,10 @@ export function createMarckUp(params) {
             views,
             comments,
             downloads
-        }) => {
-            return `<div class="photo-card">
+        }) => 
+            `<div class="photo-card">
     <a class="photo-link" href=${largeImageURL}>
-    <img class="photo-img" src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" /></a>
+    <img class="photo-img" src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" />
   <div class="info">
                  <p class="info-item">
                  <b>Likes: <br/> ${likes}</b></p>
@@ -26,15 +23,10 @@ export function createMarckUp(params) {
                   <p class="info-item">
                   <b>Downloads: <br/> ${downloads}</b></p>
   </div>
+  </a>
 </div>
  `
-        }
-    );
-    refs.gallery.insertAdjacentHTML('beforeend', imgArr.join(''));
+    ).join('');
     
-    const simpleLightBox = new SimpleLightbox('.gallery a', {
-       captionsData: 'alt',
-        captionDelay: 250,
-        captionPosition: 'bottom',
-    });
+    
 }

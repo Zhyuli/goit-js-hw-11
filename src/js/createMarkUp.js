@@ -15,15 +15,19 @@ export function createMarckUp(params) {
         }) => {
             return `<div class="photo-card">
     <a class="photo-link" href=${largeImageURL}>
-    <img class="photo-img" src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" />
+    <img class="photo-img" src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" /></a>
   <div class="info">
-    <p class="info-item"><b>Likes: ${likes}</b></p>
-    <p class="info-item"><b>Views: ${views}</b></p>
-    <p class="info-item"><b>Comments: ${comments}</b></p>
-    <p class="info-item"><b>Downloads: ${downloads}</b></p>
+                 <p class="info-item">
+                 <b>Likes: <br/> ${likes}</b></p>
+                  <p class="info-item">
+                  <b>Views: <br/> ${views}</b></p>
+                  <p class="info-item">
+                  <b>Comments: <br/> ${comments}</b></p>
+                  <p class="info-item">
+                  <b>Downloads: <br/> ${downloads}</b></p>
   </div>
 </div>
- </a>`
+ `
         }
     );
     refs.gallery.insertAdjacentHTML('beforeend', imgArr.join(''));
